@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<maven.compiler.target>11</maven.compiler.target>
+		<maven.compiler.source>11</maven.compiler.source>
+
+		<spring.boot.version>2.4.1</spring.boot.version>
+		<plugin.jib.version>2.7.0</plugin.jib.version>
+	</properties>
+
+	<groupId>com.pim</groupId>
+	<artifactId>mum-is-hiding</artifactId>
+	<version>0.9</version>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+			<version>${spring.boot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<version>${spring.boot.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-thymeleaf</artifactId>
+			<version>${spring.boot.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<version>${spring.boot.version}</version>
+			<optional>true</optional>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<!-- This plugin will create a docker image for a locally running docker daemon, when you execute 'mvn compile jib:dockerBuild'. -->
+				<groupId>com.google.cloud.tools</groupId>
+				<artifactId>jib-maven-plugin</artifactId>
+				<version>${plugin.jib.version}</version>
+				<configuration>
+					<from>
+						<!-- This is a base image, that will run on a Raspberry Pi. You may want a different one, see https://hub.docker.com/search?q=openjdk&type=image -->
+						<image>arm32v7/openjdk:11-jre-slim@sha256:14b140a6be5afd515b5111b7a8e4cc21978cecf7b0dd4674c4aee84b21f04199</image>
+					</from>
+					<to>
+						<image>mum-is-hiding</image>
+					</to>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

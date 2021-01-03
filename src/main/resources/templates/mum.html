@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <title>Mum is hiding</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <style>
+      body {
+        height: 1500px;
+        background-image: linear-gradient(#bab1ba, white);
+        background-color: #bab1ba;
+      }
+      p {
+        font-weight: bold;
+        animation-iteration-count: 1;
+        animation-fill-mode: forwards;
+      }
+
+      @keyframes animation1 {
+        0% {
+          opacity: 0;
+          max-height: 0;
+        }
+        100% {
+          opacity: 1;
+          max-height: 50px;
+        }
+      }
+      @keyframes animation2 {
+        0% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.8;
+        }
+      }
+      @keyframes animation3 {
+        0% {
+          opacity: 0.8;
+        }
+        100% {
+          opacity: 0.6;
+        }
+      }
+      @keyframes animation4 {
+        0% {
+          opacity: 0.6;
+        }
+        100% {
+          opacity: 0.4;
+        }
+      }
+      @keyframes animation5 {
+        0% {
+          opacity: 0.4;
+        }
+        100% {
+          opacity: 0.2;
+        }
+      }
+      @keyframes animation6 {
+        0% {
+          opacity: 0.2;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+
+      #sentence1 {
+        animation: animation1 ease 1s;
+        opacity: 1;
+        overflow: hidden;
+      }
+      #sentence2 {
+        animation: animation2 ease 1s;
+        opacity: 0.8;
+      }
+      #sentence3 {
+        animation: animation3 ease 1s;
+        opacity: 0.6;
+      }
+      #sentence4 {
+        animation: animation4 ease 1s;
+        opacity: 0.4;
+      }
+      #sentence5 {
+        animation: animation5 ease 1s;
+        opacity: 0.2;
+      }
+      #sentence6 {
+        animation: animation6 ease 1s;
+        opacity: 0;
+      }
+
+      .button {
+        box-shadow: 3px 4px 1px 0px #1564ad;
+        background: linear-gradient(to bottom, #79bbff 5%, #378de5 100%);
+        background-color: #79bbff;
+        border-radius: 7px;
+        border: 1px solid #337bc4;
+        display: inline-block;
+        cursor: pointer;
+        color: #ffffff;
+        font-family: Arial;
+        font-size: 17px;
+        font-weight: bold;
+        padding: 12px 44px;
+        text-decoration: none;
+        text-shadow: 0px 1px 0px #528ecc;
+      }
+      .button:hover {
+        background: linear-gradient(to bottom, #378de5 5%, #79bbff 100%);
+        background-color: #378de5;
+      }
+      .button:active {
+        position: relative;
+        top: 1px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <form action="/">
+      <input class="button" type="submit" value="Click me!" />
+    </form>
+
+    <p id="sentence1" th:text="${sentence1}" />
+    <p id="sentence2" th:text="${sentence2}" />
+    <p id="sentence3" th:text="${sentence3}" />
+    <p id="sentence4" th:text="${sentence4}" />
+    <p id="sentence5" th:text="${sentence5}" />
+    <p id="sentence6" th:text="${sentence6}" />
+  </body>
+</html>
